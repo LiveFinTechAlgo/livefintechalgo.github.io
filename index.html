@@ -1,11 +1,379 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>LiveFinTech Algo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveFinTech Algo - Advanced Trading Technology for Smarter Decisions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <h1>Welcome — LiveFinTech Algo</h1>
-  <p>LiveFinTech Indicator and Algo Trading Software</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <div class="logo-shield">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <span class="logo-text">
+                        <span class="logo-blue">LIVE FINTE</span><span class="logo-pink">CH</span>
+                    </span>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="chart-overlay"></div>
+            <div class="glow-line"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo-large">
+                    <div class="shield-logo">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-blue">LIVE FINTE</span><span class="title-pink">CH</span>
+                </h1>
+                <p class="hero-tagline">IDENTIFY | AUTOMATE | EXECUTION</p>
+                <p class="hero-slogan">Advanced Trading Technology for Smarter Decisions</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Get Started</a>
+                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Core Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Core Services</h2>
+            <div class="services-grid">
+                <!-- LiveFinTech Indicator -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title">LiveFinTech Indicator</h3>
+                    <p class="service-description">
+                        Advanced market analysis tool providing real-time Buy & Sell signals with precise entry and exit points with User Friendly Interface.
+                    </p>
+                    <div class="service-features">
+                        <span class="feature-tag">
+                            <i class="fas fa-clock"></i> Real-time
+                        </span>
+                        <span class="feature-tag">
+                            <i class="fas fa-bell"></i> Alerts
+                        </span>
+                        <span class="feature-tag">
+                            <i class="fas fa-bullseye"></i> Accurate
+                        </span>
+                    </div>
+                </div>
+
+                <!-- LiveFinTech Algo Trading -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="service-title">LiveFinTech Algo Trading</h3>
+                    <p class="service-description">
+                        Fully automated trading system that executes trades based on our proprietary indicators with zero emotional bias.
+                    </p>
+                    <div class="service-features">
+                        <span class="feature-tag">
+                            <i class="fas fa-cog"></i> Automated
+                        </span>
+                        <span class="feature-tag">
+                            <i class="fas fa-bolt"></i> Fast
+                        </span>
+                        <span class="feature-tag">
+                            <i class="fas fa-shield-alt"></i> Secure
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multi Market Compatibility -->
+            <div class="market-compatibility">
+                <h3 class="market-title">Multi Market Compatibility</h3>
+                <div class="market-grid">
+                    <div class="market-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Stocks</span>
+                    </div>
+                    <div class="market-item">
+                        <i class="fas fa-dollar-sign"></i>
+                        <span>Forex</span>
+                    </div>
+                    <div class="market-item">
+                        <i class="fas fa-coins"></i>
+                        <span>Crypto</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Intelligent Trading MT5 EA</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Fully Automated Trading</h3>
+                    <p>Based on Indicator</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3>Auto Execution on MT5</h3>
+                    <p>Seamless Integration</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Zero Emotional Trading</h3>
+                    <p>Pure Algorithm Based</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Works on All Timeframes</h3>
+                    <p>M1 to W1 Compatible</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Fast, Reliable, Stable</h3>
+                    <p>Performance Optimized</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>Customizable Settings</h3>
+                    <p>Tailored to Your Needs</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Drawdown Protection</h3>
+                    <p>Risk Management Built-in</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-bookmark"></i>
+                    </div>
+                    <h3>Partial Booking Feature</h3>
+                    <p>And More Advanced Options</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard">
+        <div class="container">
+            <h2 class="section-title">Smart Analysis Dashboard</h2>
+            
+            <!-- Multi Timeframe Analysis -->
+            <div class="dashboard-section">
+                <h3 class="dashboard-subtitle">Multi Timeframe Analysis</h3>
+                <div class="timeframe-grid">
+                    <div class="timeframe-item buy">
+                        <span class="timeframe-label">M1</span>
+                        <span class="timeframe-signal">BUY</span>
+                    </div>
+                    <div class="timeframe-item buy">
+                        <span class="timeframe-label">M5</span>
+                        <span class="timeframe-signal">BUY</span>
+                    </div>
+                    <div class="timeframe-item neutral">
+                        <span class="timeframe-label">M15</span>
+                        <span class="timeframe-signal">NEUTRAL</span>
+                    </div>
+                    <div class="timeframe-item sell">
+                        <span class="timeframe-label">H1</span>
+                        <span class="timeframe-signal">SELL</span>
+                    </div>
+                    <div class="timeframe-item sell">
+                        <span class="timeframe-label">D1</span>
+                        <span class="timeframe-signal">SELL</span>
+                    </div>
+                    <div class="timeframe-item buy">
+                        <span class="timeframe-label">W1</span>
+                        <span class="timeframe-signal">BUY</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Notification Signals -->
+            <div class="dashboard-section">
+                <h3 class="dashboard-subtitle">Active Notification Signals</h3>
+                <div class="signals-grid">
+                    <div class="signal-card buy-signal">
+                        <div class="signal-header">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="signal-type">BUY SIGNAL</span>
+                        </div>
+                        <div class="signal-details">
+                            <p>XAUUSD @ 4115.200</p>
+                            <p>TP: 4130.500 | SL: 4102.500</p>
+                        </div>
+                    </div>
+                    <div class="signal-card sell-signal">
+                        <div class="signal-header">
+                            <i class="fas fa-arrow-down"></i>
+                            <span class="signal-type">SELL SIGNAL</span>
+                        </div>
+                        <div class="signal-details">
+                            <p>GBP/JPY @ 180.45</p>
+                            <p>TP: 179.20 | SL: 181.10</p>
+                        </div>
+                    </div>
+                    <div class="signal-card buy-signal">
+                        <div class="signal-header">
+                            <i class="fas fa-arrow-up"></i>
+                            <span class="signal-type">BUY SIGNAL</span>
+                        </div>
+                        <div class="signal-details">
+                            <p>BTC/USD @ 43,560</p>
+                            <p>TP: 45,200 | SL: 42,100</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Features -->
+            <div class="dashboard-features">
+                <div class="dashboard-feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Fast</span>
+                </div>
+                <div class="dashboard-feature">
+                    <i class="fas fa-database"></i>
+                    <span>Data Driven</span>
+                </div>
+                <div class="dashboard-feature">
+                    <i class="fas fa-crystal-ball"></i>
+                    <span>Predictive</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Get Started with LiveFinTech Algo</h2>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary btn-large">Try LiveFinTech Indicator</a>
+                <a href="#contact" class="btn btn-secondary btn-large">Try LiveFinTech Algo Trading on MT5</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Website</h3>
+                    <a href="https://www.livefintech.com" target="_blank">www.livefintech.com</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <a href="tel:+919011020501">+91 9011 02 05 01</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <a href="mailto:info.livefintech@gmail.com">info.livefintech@gmail.com</a>
+                </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="social-section">
+                <h3 class="social-title">FOLLOW US ON:</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+                <p class="social-handle">@LiveFinTechAlgo</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-shield">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <span class="logo-text">
+                        <span class="logo-blue">LIVE FINTE</span><span class="logo-pink">CH</span>
+                    </span>
+                </div>
+                <p class="footer-text">© 2021 LiveFinTech Algo. Advanced Trading Technology for Smarter Decisions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
