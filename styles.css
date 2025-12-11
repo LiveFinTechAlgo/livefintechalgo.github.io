@@ -68,15 +68,18 @@ body {
 }
 
 .logo-shield {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, #475569, #64748b);
-    border-radius: 8px;
+    width: 42px;
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--danger-red);
-    font-size: 1.2rem;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
 }
 
 .logo-text {
@@ -182,13 +185,19 @@ body {
 
 .glow-line {
     position: absolute;
-    top: 50%;
+    top: 33%;
     left: 0;
     right: 0;
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--success-green), transparent);
     box-shadow: 0 0 20px var(--success-green);
-    z-index: -1;
+    z-index: 0; /* sits behind logo/text but above background grid */
+}
+
+@media (max-width: 768px) {
+    .glow-line {
+        top: 35%;
+    }
 }
 
 .hero-content {
@@ -202,18 +211,23 @@ body {
 }
 
 .shield-logo {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     margin: 0 auto;
-    background: linear-gradient(135deg, #475569, #64748b);
-    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--danger-red);
-    font-size: 4rem;
-    box-shadow: 0 10px 40px rgba(236, 72, 153, 0.3);
+    background: radial-gradient(circle at center, rgba(255,255,255,0.18), rgba(0,0,0,0));
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(236, 72, 153, 0.25);
     animation: pulse 2s infinite;
+}
+
+.hero-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 24px rgba(0,0,0,0.35));
 }
 
 .hero-title {
@@ -425,6 +439,112 @@ body {
 .market-item i {
     font-size: 3rem;
     color: var(--accent-teal);
+}
+
+/* LiveFinTech Indicator Section */
+.indicator-section {
+    padding: 100px 0;
+    background: linear-gradient(180deg, var(--bg-dark), #1e293b);
+}
+
+.indicator-intro {
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--text-gray);
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    line-height: 1.8;
+}
+
+.indicator-feature {
+    margin-bottom: 4rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 3rem;
+    backdrop-filter: blur(10px);
+}
+
+.indicator-subtitle {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.indicator-subtitle i {
+    color: var(--light-blue);
+    font-size: 1.8rem;
+}
+
+.indicator-description {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.indicator-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.indicator-feature-card {
+    background: rgba(30, 58, 138, 0.2);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.indicator-feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--light-blue);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+.indicator-feature-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--light-blue), var(--accent-teal));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--text-white);
+    margin: 0 auto 1rem;
+}
+
+.indicator-feature-card h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-white);
+}
+
+.indicator-feature-card p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.signal-pair {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-white);
+}
+
+.signal-levels {
+    font-size: 0.95rem;
+    color: var(--text-gray);
 }
 
 /* Features Section */
@@ -861,6 +981,25 @@ body {
         grid-template-columns: 1fr;
     }
 
+    .indicator-intro {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .indicator-feature {
+        padding: 2rem 1.5rem;
+    }
+
+    .indicator-subtitle {
+        font-size: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .indicator-features-grid {
+        grid-template-columns: 1fr;
+    }
+
     .features-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
@@ -904,6 +1043,18 @@ body {
     .btn {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
+    }
+
+    .indicator-feature {
+        padding: 1.5rem 1rem;
+    }
+
+    .indicator-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .indicator-description {
+        font-size: 1rem;
     }
 
     .timeframe-grid {
