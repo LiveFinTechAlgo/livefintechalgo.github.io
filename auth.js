@@ -70,7 +70,7 @@ if (signupForm) {
                 });
 
                 alert("Account Created Successfully! Redirecting...");
-                window.location.href = "index.html";
+                window.location.href = "subscription.html";
             } catch (error) {
                 const errorCode = error.code;
                 const errorMessage = error.message;
@@ -102,7 +102,7 @@ if (loginForm) {
                     // Signed in 
                     const user = userCredential.user;
                     // alert("Login Successful!");
-                    window.location.href = "index.html";
+                    window.location.href = "subscription.html";
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -114,11 +114,11 @@ if (loginForm) {
             // Mock Login for Demo
             if (email === "demo@livefintech.com" && password === "123456") {
                 alert("(DEMO) Login Successful!");
-                window.location.href = "index.html";
+                window.location.href = "subscription.html";
             } else if (email && password) {
                 // Allow any login in demo mode if keys aren't set, or show error
                 alert("(DEMO) Login Successful! (Config keys needed for real auth)");
-                window.location.href = "index.html";
+                window.location.href = "subscription.html";
             }
         }
     });
