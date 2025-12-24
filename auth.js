@@ -211,12 +211,20 @@ if (auth) {
     // Logout Logic for Profile Page
     const logoutBtn = document.getElementById('logout-btn');
     if (logoutBtn) {
-        logoutBtn.addEventListener('click', () => {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent any default behavior
             signOut(auth).then(() => {
+                // Force UI Reset immediately
+                if (document.getElementById('nav-login-btn')) {
+                    document.getElementById('nav-login-btn').innerHTML = "Login";
+                    document.getElementById('nav-login-btn').href = "login.html";
+                }
                 alert("Signed out successfully");
-                window.location.href = "index.html";
+                // Use replace to avoid back-history issues
+                window.location.replace("index.html");
             }).catch((error) => {
                 console.error("Sign out error", error);
+                alert("Error signing out: " + error.message);
             });
         });
     }
