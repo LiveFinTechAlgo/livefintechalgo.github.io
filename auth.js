@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 // TODO: Replace the following with your app's Firebase project configuration
@@ -61,7 +61,10 @@ if (signupForm) {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 const user = userCredential.user;
 
-                // 2. Save Extra Details to Firestore Database
+                // 2. Send Verification Email
+                await sendEmailVerification(user);
+
+                // 3. Save Extra Details to Firestore Database
                 await setDoc(doc(db, "users", user.uid), {
                     name: name,
                     phone: phone,
@@ -69,8 +72,8 @@ if (signupForm) {
                     createdAt: new Date().toISOString()
                 });
 
-                alert("Account Created Successfully! Redirecting...");
-                window.location.href = "subscription.html";
+                alert("Account Created! A verification link has been sent to your email. Please verify before logging in.");
+                window.location.href = "login.html";
             } catch (error) {
                 const errorCode = error.code;
                 const errorMessage = error.message;
@@ -98,9 +101,18 @@ if (loginForm) {
 
         if (auth) {
             signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
+                .then(async (userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
+
+                    // CHECK EMAIL VERIFICATION
+                    if (!user.emailVerified) {
+                        await signOut(auth); // Log them out immediately
+                        showError(errorMsg, "Please verify your email address to log in.");
+                        alert("Email not verified. Please check your inbox for the verification link.");
+                        return;
+                    }
+
                     // alert("Login Successful!");
                     window.location.href = "subscription.html";
                 })
