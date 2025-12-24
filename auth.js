@@ -9,8 +9,13 @@ import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10
 // 2. Go to Project Settings
 // 3. Scroll down to "Your apps" and select Web (</>)
 // 4. Copy the config object below
+// ------------------------------------------------------------------
+// IMPORTANT: PASTE YOUR FIREBASE CONFIG HERE
+// Go to Firebase Console -> Project Settings -> Scroll down to "Your apps"
+// Copy the "const firebaseConfig = { ... };" block and PASTE it below, replacing the one here.
+// ------------------------------------------------------------------
 const firebaseConfig = {
-    apiKey: "AIzaSyBhcD-C0wMb53xGwKQLplBZkFO2AyZpgHU",
+    apiKey: "AIzaSyBhcD-C0wMb53xGwKQlpTBZkFO2AyZpgHU",
     authDomain: "livefintech-auth.firebaseapp.com",
     projectId: "livefintech-auth",
     storageBucket: "livefintech-auth.firebasestorage.app",
@@ -18,6 +23,7 @@ const firebaseConfig = {
     appId: "1:527797574356:web:e17cf9d6a655bcbf9fb941",
     measurementId: "G-6SS44MFKR1"
 };
+// ------------------------------------------------------------------
 
 // Initialize Firebase
 let app;
