@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - LiveFinTech Algo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .profile-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-avatar-large {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--light-blue), var(--accent-pink));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .profile-details-grid {
+            display: grid;
+            gap: 1.5rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .profile-item {
+            background: rgba(30, 58, 138, 0.2);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .profile-label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: 0.3rem;
+        }
+
+        .profile-value {
+            font-size: 1.1rem;
+            color: var(--text-white);
+            font-weight: 500;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--light-blue);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+                    <div class="logo-shield">
+                        <img src="LiveFinTech Algo Trading Logo Symbol.png" alt="LiveFinTech logo" class="logo-img">
+                    </div>
+                    <span class="logo-text">
+                        <span class="logo-blue">LIVE FINTE</span><span class="logo-pink">CH</span>
+                    </span>
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#indicator">Indicator</a></li>
+                    <li><a href="subscription.html">Pricing</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="login.html" id="nav-login-btn" style="color: var(--light-blue);">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="login-section">
+        <div class="container login-container">
+            <div class="login-card">
+                <div id="profile-loading" style="display: block;">
+                    <div class="loading-spinner"></div>
+                    <p style="margin-top: 1rem; color: var(--text-gray);">Loading profile...</p>
+                </div>
+
+                <div id="profile-content" style="display: none; animation: fadeInUp 0.5s ease;">
+                    <div class="profile-header">
+                        <div class="profile-avatar-large" id="profile-initials">U</div>
+                        <h1 class="login-title" id="profile-name">User Name</h1>
+                        <p class="login-subtitle">Member since <span id="profile-joined">2023</span></p>
+                    </div>
+
+                    <div class="profile-details-grid">
+                        <div class="profile-item">
+                            <span class="profile-label">Email Address</span>
+                            <div class="profile-value" id="profile-email">email@example.com</div>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Phone Number</span>
+                            <div class="profile-value" id="profile-phone">+91 XXXXX XXXXX</div>
+                        </div>
+                    </div>
+
+                    <button id="logout-btn" class="btn-login"
+                        style="background: var(--bg-dark); border: 1px solid var(--accent-pink); color: var(--accent-pink);">
+                        SIGN OUT <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-shield">
+                        <img src="LiveFinTech Algo Trading Logo Symbol.png" alt="LiveFinTech logo" class="logo-img">
+                    </div>
+                    <span class="logo-text">
+                        <span class="logo-blue">LIVE FINTE</span><span class="logo-pink">CH</span>
+                    </span>
+                </div>
+                <p class="footer-text">© 2021 LiveFinTech Algo. Advanced Trading Technology for Smarter Decisions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="auth.js?v=4"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

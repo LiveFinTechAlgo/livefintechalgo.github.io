@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 // TODO: Replace the following with your app's Firebase project configuration
 // You can obtain these details from the Firebase Console (https://console.firebase.google.com/)
@@ -134,16 +134,90 @@ function showError(element, message) {
     }
 }
 
-// --- Auth State Observer (Optional: To update UI if logged in) ---
+// --- Auth State Observer (UI Updates) ---
 if (auth) {
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
+        const loginLink = document.getElementById('nav-login-btn');
+        const isProfilePage = window.location.pathname.includes('profile.html');
+
         if (user) {
-            // User is signed in, maybe update Navbar to say "Logout"
-            console.log("User is logged in:", user.email);
-            // Example: const navLogin = document.querySelector('a[href="login.html"]');
-            // if(navLogin) navLogin.textContent = "Logout";
+            // User is signed in
+            console.log("User logged in:", user.email);
+
+            // 1. Update Navbar to Avatar
+            if (loginLink) {
+                // Determine Initials
+                let initials = "U";
+                let fullName = "User";
+
+                // Fetch User Details from Firestore
+                try {
+                    const userDocRef = doc(db, "users", user.uid);
+                    const userDoc = await getDoc(userDocRef);
+
+                    if (userDoc.exists()) {
+                        const userData = userDoc.data();
+                        fullName = userData.name || "User";
+                        if (fullName) {
+                            initials = fullName.split(" ").map((n) => n[0]).join("").substring(0, 2).toUpperCase();
+                        }
+
+                        // If on profile page, populate details
+                        if (isProfilePage) {
+                            document.getElementById('profile-name').textContent = fullName;
+                            document.getElementById('profile-email').textContent = userData.email;
+                            document.getElementById('profile-phone').textContent = userData.phone || "N/A";
+                            document.getElementById('profile-initials').textContent = initials;
+
+                            if (userData.createdAt) {
+                                const year = new Date(userData.createdAt).getFullYear();
+                                document.getElementById('profile-joined').textContent = year;
+                            }
+
+                            document.getElementById('profile-loading').style.display = 'none';
+                            document.getElementById('profile-content').style.display = 'block';
+                        }
+                    } else {
+                        // Fallback if no db record found (rare)
+                        if (isProfilePage) {
+                            document.getElementById('profile-loading').style.display = 'none';
+                            document.getElementById('profile-content').style.display = 'block';
+                            document.getElementById('profile-email').textContent = user.email;
+                        }
+                    }
+                } catch (e) {
+                    console.error("Error fetching user data:", e);
+                }
+
+                // Render Avatar in Navbar
+                loginLink.innerHTML = `<div style="width: 35px; height: 35px; background: linear-gradient(135deg, #3b82f6, #ec4899); border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem;">${initials}</div>`;
+                loginLink.href = "profile.html";
+                loginLink.title = "View Profile";
+            }
+
         } else {
             // User is signed out
+            if (loginLink) {
+                loginLink.innerHTML = "Login";
+                loginLink.href = "login.html";
+            }
+            // If on profile page and not logged in, redirect
+            if (isProfilePage) {
+                window.location.href = "login.html";
+            }
         }
     });
+
+    // Logout Logic for Profile Page
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            signOut(auth).then(() => {
+                alert("Signed out successfully");
+                window.location.href = "index.html";
+            }).catch((error) => {
+                console.error("Sign out error", error);
+            });
+        });
+    }
 }
