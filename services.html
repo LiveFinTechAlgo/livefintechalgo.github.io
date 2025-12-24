@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LiveFinTech Algo - Advanced Trading Technology for Smarter Decisions</title>
+    <title>Our Services - LiveFinTech Algo</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,14 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="LiveFinTech Algo Trading Logo Symbol.png">
+    <style>
+        /* Add some padding for the dedicated page header */
+        .services-page-header {
+            padding-top: 120px;
+            padding-bottom: 50px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,14 +27,14 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-wrapper">
-                <div class="logo">
+                <a href="./" class="logo" style="text-decoration: none; color: inherit;">
                     <div class="logo-shield">
                         <img src="LiveFinTech Algo Trading Logo Symbol.png" alt="LiveFinTech logo" class="logo-img">
                     </div>
                     <span class="logo-text">
                         <span class="logo-blue">LIVE FINTE</span><span class="logo-pink">CH</span>
                     </span>
-                </div>
+                </a>
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -35,49 +43,23 @@
                 <ul class="nav-menu">
                     <li><a href="./">Home</a></li>
                     <li><a href="services">Services</a></li>
-                    <li><a href="#indicator">Indicator</a></li>
+                    <li><a href="index#indicator">Indicator</a></li>
                     <li><a href="subscription">Pricing</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index#contact">Contact</a></li>
                     <li><a href="login" id="nav-login-btn" style="color: var(--light-blue);">Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="chart-overlay"></div>
-            <div class="glow-line"></div>
-        </div>
+    <!-- Services Section -->
+    <section id="services" class="services" style="padding-top: 120px;">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-logo-large">
-                    <div class="shield-logo">
-                        <img src="LiveFinTech Algo Trading Logo Symbol.png" alt="LiveFinTech logo shield"
-                            class="hero-logo-img">
-                    </div>
-                </div>
-                <h1 class="hero-title">
-                    <span class="title-blue">LIVE FINTE</span><span class="title-pink">CH</span>
-                </h1>
-                <p class="hero-tagline">IDENTIFY | AUTOMATE | EXECUTION</p>
-                <p class="hero-slogan">Advanced Trading Technology for Smarter Decisions</p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">Get Started</a>
-                    <a href="#features" class="btn btn-secondary">Learn More</a>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive trading solutions powered by advanced algorithms</p>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
 
-    <!-- Core Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Our Core Services</h2>
             <div class="services-grid">
                 <!-- LiveFinTech Indicator -->
                 <div class="service-card">
@@ -86,15 +68,16 @@
                     </div>
                     <h3 class="service-title">LiveFinTech Indicator</h3>
                     <p class="service-description">
-                        Advanced market analysis tool providing real-time Buy & Sell signals with precise entry and exit
-                        points with User Friendly Interface.
+                        Advanced technical analysis tool that identifies market trends and generates precise Buy/Sell
+                        signals in
+                        real-time.
                     </p>
                     <div class="service-features">
                         <span class="feature-tag">
-                            <i class="fas fa-clock"></i> Real-time
+                            <i class="fas fa-bell"></i> Real-time
                         </span>
                         <span class="feature-tag">
-                            <i class="fas fa-bell"></i> Alerts
+                            <i class="fas fa-exclamation-circle"></i> Alerts
                         </span>
                         <span class="feature-tag">
                             <i class="fas fa-bullseye"></i> Accurate
@@ -349,71 +332,6 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2 class="cta-title">Get Started with LiveFinTech Algo</h2>
-            <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary btn-large">Try LiveFinTech Indicator</a>
-                <a href="#contact" class="btn btn-secondary btn-large">Try LiveFinTech Algo Trading on MT5</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>Website</h3>
-                    <a href="https://www.livefintech.com" target="_blank">www.livefintech.com</a>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <h3>Phone</h3>
-                    <a href="tel:+919011020501">+91 9011 02 05 01</a>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Email</h3>
-                    <a href="mailto:info.livefintech@gmail.com">info.livefintech@gmail.com</a>
-                </div>
-            </div>
-
-            <!-- Social Media -->
-            <div class="social-section">
-                <h3 class="social-title">FOLLOW US ON:</h3>
-                <div class="social-links">
-                    <a href="https://www.youtube.com/channel/UCXbN963HAxdBIYNlD-BChsg" class="social-link"
-                        aria-label="YouTube" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://www.instagram.com/livefintechalgo" class="social-link" aria-label="Instagram"
-                        target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.facebook.com/livefintechalgo" class="social-link" aria-label="Facebook"
-                        target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://chat.whatsapp.com/LQOJmAL7mZFCRqnHn7kQ5X" class="social-link"
-                        aria-label="WhatsApp Group" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
-                <p class="social-handle">@LiveFinTechAlgo</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -435,176 +353,6 @@
         </div>
     </footer>
 
-    <!-- Floating Contact Form - Paste this exactly here -->
-    <div id="floatingForm" class="floating-form-container">
-        <div class="floating-form-header" id="formHeader">
-            <i class="fas fa-headset"></i>
-            <span>Need Help? Chat with Us!</span>
-            <button class="close-btn" id="closeForm">×</button>
-        </div>
-        <form action="https://formsubmit.co/info.livefintech@gmail.com" method="POST" class="floating-form"
-            id="contactFloatForm">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="tel" name="phone" placeholder="Mobile Number" required>
-            <textarea name="message" rows="4" placeholder="Your Message..." required></textarea>
-
-            <input type="text" name="_honey" style="display:none">
-            <input type="hidden" name="_next" value="https://www.livefintech.com">
-            <input type="hidden" name="_subject" value="New Message from Website">
-            <input type="hidden" name="_captcha" value="false">
-
-            <button type="submit" class="submit-btn">
-                Send Message
-            </button>
-        </form>
-    </div>
-
-    <button id="openFormBtn" class="floating-btn">
-        <span class="pulse-ring"></span>
-    </button>
-
-    <style>
-        .floating-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 28px;
-            box-shadow: 0 8px 25px rgba(0, 114, 255, 0.4);
-            cursor: pointer;
-            z-index: 1000;
-            transition: all .3s
-        }
-
-        .floating-btn:hover {
-            transform: scale(1.1)
-        }
-
-        .pulse-ring {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            background: rgba(0, 114, 255, 0.3);
-            border-radius: 50%;
-            animation: pulse 2s infinite
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(0.8);
-                opacity: 1
-            }
-
-            100% {
-                transform: scale(1.6);
-                opacity: 0
-            }
-        }
-
-        .floating-form-container {
-            position: fixed;
-            bottom: 100px;
-            right: 30px;
-            width: 340px;
-            max-width: 90vw;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            z-index: 999;
-            transform: translateY(150%);
-            opacity: 0;
-            transition: all .4s cubic-bezier(0.68, -0.55, 0.27, 1.55)
-        }
-
-        .floating-form-container.open {
-            transform: translateY(0);
-            opacity: 1
-        }
-
-        .floating-form-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 16px 20px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 16px
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 28px;
-            cursor: pointer
-        }
-
-        .floating-form {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 14px
-        }
-
-        .floating-form input,
-        .floating-form textarea {
-            width: 100%;
-            padding: 12px 14px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 14px
-        }
-
-        .floating-form input:focus,
-        .floating-form textarea:focus {
-            outline: none;
-            border-color: #0072ff;
-            box-shadow: 0 0 0 3px rgba(0, 114, 255, 0.1)
-        }
-
-        .submit-btn {
-            background: linear-gradient(135deg, #00c6ff, #0072ff);
-            color: white;
-            border: none;
-            padding: 14px;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 8px
-        }
-
-        @media(max-width:480px) {
-            .floating-form-container {
-                width: 92vw;
-                right: 4vw;
-                bottom: 90px
-            }
-
-            .floating-btn {
-                bottom: 20px;
-                right: 20px;
-                width: 56px;
-                height: 56px;
-                font-size: 24px
-            }
-        }
-    </style>
-
-    <script>
-        document.getElementById('openFormBtn').addEventListener('click', () => { document.getElementById('floatingForm').classList.add('open'); document.getElementById('openFormBtn').style.display = 'none' });
-        document.getElementById('closeForm').addEventListener('click', () => { document.getElementById('floatingForm').classList.remove('open'); document.getElementById('openFormBtn').style.display = 'flex' });
-        document.addEventListener('click', (e) => { if (!document.getElementById('floatingForm').contains(e.target) && !document.getElementById('openFormBtn').contains(e.target) && document.getElementById('floatingForm').classList.contains('open')) { document.getElementById('floatingForm').classList.remove('open'); document.getElementById('openFormBtn').style.display = 'flex' } });
-    </script>
-    <!-- Floating Form Ends Here -->
-
-    <script type="module" src="auth.js?v=12"></script>
     <script src="script.js"></script>
 </body>
 

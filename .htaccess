@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /
+
+# Redirect index.html and index to /
+RewriteCond %{THE_REQUEST} ^GET\ .*/index\.(html)?\  [NC]
+RewriteRule ^(.*)index\.(html)?$ /$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)\.html$ /$1 [L,R=301]
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
