@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - LiveFinTech Algo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+                    <div class="logo-shield">
+                        <img src="LiveFinTech Algo Trading Logo Symbol.png" alt="LiveFinTech logo" class="logo-img">
+                    </div>
+                    <span class="logo-text">
+                        <span class="logo-blue">LIVE FINTE</span><span class="logo-pink">CH</span>
+                    </span>
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#indicator">Indicator</a></li>
+                    <li><a href="subscription.html">Pricing</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="login.html" class="active" style="color: var(--light-blue);">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Signup Section -->
+    <section class="login-section">
+        <div class="container login-container">
+            <div class="login-card">
+                <div class="login-header">
+                    <h1 class="login-title">CREATE ACCOUNT</h1>
+                    <p class="login-subtitle">Join LiveFinTech Algo today</p>
+                </div>
+
+                <form id="signupForm">
+                    <div class="login-form-group">
+                        <label for="signupName" class="login-form-label">Full Name</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="signupName" class="login-input" placeholder="Enter your full name"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="login-form-group">
+                        <label for="signupPhone" class="login-form-label">Phone Number</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fas fa-phone input-icon"></i>
+                            <input type="tel" id="signupPhone" class="login-input"
+                                placeholder="Enter your mobile number" required>
+                        </div>
+                    </div>
+
+                    <div class="login-form-group">
+                        <label for="signupEmail" class="login-form-label">Email Address</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="signupEmail" class="login-input" placeholder="Enter your email"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="login-form-group">
+                        <label for="signupPassword" class="login-form-label">Password</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="signupPassword" class="login-input"
+                                placeholder="Create a password" required>
+                        </div>
+                    </div>
+
+                    <div class="login-form-group">
+                        <label for="confirmPassword" class="login-form-label">Confirm Password</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="confirmPassword" class="login-input"
+                                placeholder="Confirm your password" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-login">
+                        SIGN UP <i class="fas fa-user-plus"></i>
+                    </button>
+                    <p id="error-message" style="color: #ef4444; margin-top: 10px; font-size: 0.9rem; display: none;">
+                    </p>
+                </form>
+
+                <div class="signup-link">
+                    Already have an account? <a href="login.html">Login</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-shield">
+                        <img src="LiveFinTech Algo Trading Logo Symbol.png" alt="LiveFinTech logo" class="logo-img">
+                    </div>
+                    <span class="logo-text">
+                        <span class="logo-blue">LIVE FINTE</span><span class="logo-pink">CH</span>
+                    </span>
+                </div>
+                <p class="footer-text">© 2021 LiveFinTech Algo. Advanced Trading Technology for Smarter Decisions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Form -->
+    <div id="floatingForm" class="floating-form-container">
+        <div class="floating-form-header" id="formHeader">
+            <i class="fas fa-headset"></i>
+            <span>Need Help? Chat with Us!</span>
+            <button class="close-btn" id="closeForm">×</button>
+        </div>
+        <form action="https://formsubmit.co/info.livefintech@gmail.com" method="POST" class="floating-form"
+            id="contactFloatForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="tel" name="phone" placeholder="Mobile Number" required>
+            <textarea name="message" rows="4" placeholder="Your Message..." required></textarea>
+
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_next" value="https://www.livefintech.com">
+            <input type="hidden" name="_subject" value="New Message from Website">
+            <input type="hidden" name="_captcha" value="false">
+
+            <button type="submit" class="submit-btn">
+                Send Message
+            </button>
+        </form>
+    </div>
+
+    <button id="openFormBtn" class="floating-btn">
+        <span class="pulse-ring"></span>
+    </button>
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="auth.js?v=2"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
