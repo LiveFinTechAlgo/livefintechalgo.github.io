@@ -179,10 +179,122 @@
 }
 
 @media (max-width: 768px) {
+    .pricing-section {
+        padding: 100px 0 60px;
+    }
 
-    .pricing-table th,
+    .pricing-subtitle {
+        font-size: 1.4rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .pricing-card {
+        padding: 1.5rem;
+    }
+
+    .pricing-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .pricing-card-header i {
+        display: none;
+        /* Hide icon on mobile to save space or adjust */
+    }
+
+    .pricing-card-title {
+        font-size: 1.3rem;
+        line-height: 1.4;
+    }
+
+    /* Responsive Table - Stacked Layout */
+    .pricing-table-wrapper {
+        overflow-x: visible;
+    }
+
+    .pricing-table {
+        min-width: 100%;
+        display: block;
+    }
+
+    .pricing-table thead {
+        display: none;
+    }
+
+    .pricing-table tbody {
+        display: block;
+    }
+
+    .pricing-table tr {
+        display: block;
+        margin-bottom: 1.5rem;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
     .pricing-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: right;
+        padding: 1rem 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 0.95rem;
+        background: transparent !important;
+        min-height: 3.5rem;
+    }
+
+    .pricing-table td:last-child {
+        border-bottom: none;
+        justify-content: center;
+        padding: 1.5rem;
+        background: rgba(30, 58, 138, 0.2) !important;
+    }
+
+    .pricing-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        color: var(--accent-teal);
+        text-align: left;
+        margin-right: 1rem;
+        flex: 1;
+    }
+
+    /* Hide label for the last child (Button) to center it properly */
+    .pricing-table td:last-child::before {
+        display: none;
+    }
+
+    .pricing-table tr td:first-child {
+        border-radius: 0;
+        color: var(--light-blue);
+        background: rgba(30, 58, 138, 0.3) !important;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Hide label for the first child (Period) if we want it to look like a card title, 
+       but keeping it consistent is also fine. Let's make it look like a header. */
+    .pricing-table tr td:first-child::before {
+        display: none;
+    }
+
+    .pricing-table tr td:nth-last-child(2) {
+        font-size: 1.1rem;
+        color: var(--success-green);
+    }
+
+    .btn-buy {
+        width: 100%;
+        text-align: center;
         padding: 0.8rem;
-        font-size: 0.9rem;
     }
 }
