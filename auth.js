@@ -246,10 +246,18 @@ async function fetchUsers() {
 
 // --- Auth State Observer (UI Updates) ---
 if (auth) {
+    // Clean URL: Remove .html extension from address bar
+    if (window.location.pathname.endsWith('.html')) {
+        const newUrl = window.location.pathname.slice(0, -5);
+        window.history.replaceState(null, '', newUrl);
+    }
+
     onAuthStateChanged(auth, async (user) => {
         const loginLink = document.getElementById('nav-login-btn');
-        const isProfilePage = window.location.pathname.includes('profile.html');
-        const isAdminPage = window.location.pathname.includes('admin.html');
+        // Check loosely for page names to support both .html and clean URLs
+        const isProfilePage = window.location.pathname.includes('profile');
+        const isAdminPage = window.location.pathname.includes('admin');
+
 
         if (user) {
             // User is signed in
