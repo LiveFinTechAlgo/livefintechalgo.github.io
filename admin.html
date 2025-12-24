@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - LiveFinTech Algo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-section {
+            padding: 80px 0;
+            margin-top: 60px;
+        }
+
+        .admin-table-container {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            overflow-x: auto;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .admin-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            color: white;
+            min-width: 800px;
+        }
+
+        .admin-table th,
+        .admin-table td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-table th {
+            background-color: rgba(59, 130, 246, 0.2);
+            font-weight: 600;
+            color: var(--light-blue);
+        }
+
+        .admin-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .total-badge {
+            display: inline-block;
+            background: var(--accent-pink);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">
+                    <div class="logo-shield">
+                        <img src="LiveFinTech Algo Trading Logo Symbol.png" alt="LiveFinTech logo" class="logo-img">
+                    </div>
+                    <span class="logo-text">
+                        <span class="logo-blue">LIVE FINTE</span><span class="logo-pink">CH</span>
+                    </span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html" id="nav-login-btn">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Section -->
+    <section class="admin-section" style="display: none;">
+        <div class="container">
+            <h1 class="admin-title">Registered Users <span id="total-users" class="total-badge">0</span></h1>
+
+            <div id="admin-loading" style="text-align: center; color: var(--text-gray);">
+                <i class="fas fa-spinner fa-spin fa-2x"></i>
+                <p style="margin-top: 10px;">Loading data from Firestore...</p>
+            </div>
+
+            <div class="admin-table-container" id="admin-table-wrapper" style="display:none;">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Joined Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table-body">
+                        <!-- Rows will be populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="auth.js?v=10"></script>
+</body>
+
+</html>

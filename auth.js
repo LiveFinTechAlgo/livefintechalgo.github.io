@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 // TODO: Replace the following with your app's Firebase project configuration
 // You can obtain these details from the Firebase Console (https://console.firebase.google.com/)
@@ -134,15 +134,126 @@ function showError(element, message) {
     }
 }
 
+// --- Forgot Password Logic ---
+const forgotLink = document.getElementById('forgotPasswordLink');
+const backToLogin = document.getElementById('backToLoginLink');
+const resetForm = document.getElementById('resetForm');
+
+if (forgotLink && loginForm && resetForm) {
+    forgotLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginForm.style.display = 'none';
+        resetForm.style.display = 'block';
+        document.querySelector('.signup-link').style.display = 'none'; // Hide signup link when resetting
+        const headerH1 = document.querySelector('.login-header h1');
+        const headerP = document.querySelector('.login-header p');
+        if (headerH1) headerH1.innerText = "RECOVER ACCOUNT";
+        if (headerP) headerP.innerText = "";
+    });
+}
+
+if (backToLogin && loginForm && resetForm) {
+    backToLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        resetForm.style.display = 'none';
+        loginForm.style.display = 'block';
+        document.querySelector('.signup-link').style.display = 'block';
+        const headerH1 = document.querySelector('.login-header h1');
+        const headerP = document.querySelector('.login-header p');
+        if (headerH1) headerH1.innerText = "WELCOME BACK";
+        if (headerP) headerP.innerText = "Enter your credentials to access your account";
+    });
+}
+
+if (resetForm) {
+    resetForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('resetEmail').value;
+
+        if (auth) {
+            sendPasswordResetEmail(auth, email)
+                .then(() => {
+                    alert("Password reset email sent! Please check your inbox.");
+                    // Switch back to login
+                    resetForm.style.display = 'none';
+                    loginForm.style.display = 'block';
+                    document.querySelector('.signup-link').style.display = 'block';
+                })
+                .catch((error) => {
+                    console.error(error);
+                    alert("Error: " + error.message);
+                });
+        }
+    });
+}
+
+// --- ADMIN: Fetch Users ---
+async function fetchUsers() {
+    const tableBody = document.getElementById('users-table-body');
+    const loading = document.getElementById('admin-loading');
+    const wrapper = document.getElementById('admin-table-wrapper');
+    const totalBadge = document.getElementById('total-users');
+
+    if (!tableBody) return;
+
+    try {
+        const q = query(collection(db, "users"), orderBy("createdAt", "desc"));
+        const querySnapshot = await getDocs(q);
+
+        loading.style.display = 'none';
+        wrapper.style.display = 'block';
+
+        if (totalBadge) totalBadge.textContent = querySnapshot.size;
+
+        let index = 1;
+        let html = "";
+
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            const date = data.createdAt ? new Date(data.createdAt).toLocaleDateString() : "N/A";
+
+            html += `
+                <tr>
+                    <td>${index++}</td>
+                    <td>${data.name || "N/A"}</td>
+                    <td>${data.email || "N/A"}</td>
+                    <td>${data.phone || "N/A"}</td>
+                    <td>${date}</td>
+                </tr>
+            `;
+        });
+
+        tableBody.innerHTML = html;
+
+    } catch (err) {
+        console.error("Error fetching users:", err);
+        loading.innerHTML = `<p style="color:red">Error loading data: ${err.message}</p>`;
+    }
+}
+
+
 // --- Auth State Observer (UI Updates) ---
 if (auth) {
     onAuthStateChanged(auth, async (user) => {
         const loginLink = document.getElementById('nav-login-btn');
         const isProfilePage = window.location.pathname.includes('profile.html');
+        const isAdminPage = window.location.pathname.includes('admin.html');
 
         if (user) {
             // User is signed in
             console.log("User logged in:", user.email);
+
+            // ADMIN PAGE logic
+            if (isAdminPage) {
+                if (user.email !== "info.livefintech@gmail.com") {
+                    // Silent Redirect
+                    window.location.replace("index.html");
+                } else {
+                    const adminSection = document.querySelector('.admin-section');
+                    if (adminSection) adminSection.style.display = 'block';
+                    fetchUsers();
+                }
+            }
 
             // 1. Update Navbar to Avatar
             if (loginLink) {
@@ -204,6 +315,9 @@ if (auth) {
             // If on profile page and not logged in, redirect
             if (isProfilePage) {
                 window.location.href = "login.html";
+            }
+            if (isAdminPage) {
+                window.location.replace("login.html");
             }
         }
     });
